@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.foodtil.ui.fragments
+package com.sebasorozcob.www.foodtil.ui.fragments.recipes
 
 import android.os.Bundle
 import android.view.LayoutInflater
