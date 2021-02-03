@@ -11,7 +11,6 @@ import androidx.lifecycle.viewModelScope
 import com.sebasorozcob.www.foodtil.data.network.Repository
 import com.sebasorozcob.www.foodtil.models.FoodRecipe
 import com.sebasorozcob.www.foodtil.util.NetworkResult
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
