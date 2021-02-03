@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.foodtil.data
+package com.sebasorozcob.www.foodtil.util
 
 class Constants {
 

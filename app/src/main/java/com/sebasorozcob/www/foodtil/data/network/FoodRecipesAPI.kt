@@ -1,6 +1,6 @@
-package com.sebasorozcob.www.foodtil.data
+package com.sebasorozcob.www.foodtil.data.network
 
-import com.sebasorozcob.www.foodtil.data.server.models.FoodRecipe
+import com.sebasorozcob.www.foodtil.models.FoodRecipe
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

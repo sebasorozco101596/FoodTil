@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.foodtil.data.server.models
+package com.sebasorozcob.www.foodtil.models
 
 
 import com.google.gson.annotations.SerializedName
