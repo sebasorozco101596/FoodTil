@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.foodtil
+package com.sebasorozcob.www.foodtil.viewmodels
 
 import android.app.Application
 import android.content.Context
@@ -21,9 +21,10 @@ class MainViewModel @ViewModelInject constructor(
 ) : AndroidViewModel(application) {
 
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
-    fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
-        getRecipesSafeCall(queries)
-    }
+    fun getRecipes(queries: Map<String, String>) =
+        viewModelScope.launch {
+            getRecipesSafeCall(queries)
+        }
 
     private suspend fun getRecipesSafeCall(queries: Map<String, String>) {
         recipesResponse.value = NetworkResult.Loading()
@@ -47,10 +48,13 @@ class MainViewModel @ViewModelInject constructor(
             response.code() == 402 -> {
                 return NetworkResult.Error("API Key Limited.")
             }
-            response.body()!!.results.isNotEmpty() -> {
+            response.code() == 404 -> {
+                return NetworkResult.Error("Not found")
+            }
+            response.body()!!.results.isEmpty() -> {
                 return NetworkResult.Error("Recipes not found.")
             }
-            response.isSuccessful  -> {
+            response.isSuccessful -> {
                 val foodRecipes = response.body()
                 return NetworkResult.Success(foodRecipes!!)
             }
