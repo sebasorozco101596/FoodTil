@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sebasorozcob.www.foodtil.R
 import com.sebasorozcob.www.foodtil.databinding.FragmentRecipesBinding
 import com.sebasorozcob.www.foodtil.ui.adapters.RecipesAdapter
 import com.sebasorozcob.www.foodtil.util.NetworkResult
@@ -42,6 +44,10 @@ class RecipesFragment : Fragment() {
         //mainViewModel =  ViewModelProvider(this).get(MainViewModel::class.java)
         setupRecyclerView()
         readDatabase()
+
+        binding.recipesFab.setOnClickListener{
+            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+        }
 
         return binding.root
     }
