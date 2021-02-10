@@ -43,7 +43,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="@string/content_description_image" />
 
                 <TextView
                     android:id="@+id/titleTextView"
@@ -90,19 +91,20 @@
                     app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    android:contentDescription="@string/heart_image" />
 
                 <TextView
                     android:id="@+id/heartTextView"
+                    setNumberOfLikes="@{result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="100"
-                    setNumberOfLikes="@{result.aggregateLikes}"
-                    android:textColor="@color/red"
                     android:textAlignment="center"
+                    android:textColor="@color/red"
                     app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/heartImageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/heartImageView"
+                    tools:text="100" />
 
                 <ImageView
                     android:id="@+id/clockImageView"
@@ -113,14 +115,15 @@
                     app:layout_constraintStart_toStartOf="@+id/clockTextView"
                     app:layout_constraintTop_toTopOf="@+id/heartImageView"
                     app:srcCompat="@drawable/ic_clock"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    android:contentDescription="@string/clock_image" />
 
                 <TextView
                     android:id="@+id/clockTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="100"
+                    tools:text="100"
                     android:gravity="center"
                     setNumberOfMinutes="@{result.readyInMinutes}"
                     android:textColor="@color/yellow"
@@ -137,7 +140,8 @@
                     app:layout_constraintStart_toStartOf="@+id/leafTextView"
                     app:layout_constraintTop_toTopOf="@+id/clockImageView"
                     app:srcCompat="@drawable/ic_leaf"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    android:contentDescription="@string/vegan_image" />
 
                 <TextView
                     android:id="@+id/leafTextView"

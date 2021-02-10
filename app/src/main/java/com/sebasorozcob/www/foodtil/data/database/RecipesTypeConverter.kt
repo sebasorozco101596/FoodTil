@@ -7,7 +7,7 @@ import com.sebasorozcob.www.foodtil.models.FoodRecipe
 
 class RecipesTypeConverter {
 
-    var gson = Gson()
+    private var gson = Gson()
 
     @TypeConverter
     fun foodRecipeToString(foodRecipe: FoodRecipe): String {

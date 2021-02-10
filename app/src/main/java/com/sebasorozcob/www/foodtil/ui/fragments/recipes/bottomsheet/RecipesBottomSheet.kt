@@ -63,7 +63,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             anyChange = mealTypeChip != lastMealTypeCheck
             Log.d(
                 TAG,
-                "new meal type checked: $mealTypeChip, last meal type cheked: $lastMealTypeCheck"
+                "new meal type checked: $mealTypeChip, last meal type checked: $lastMealTypeCheck"
             )
         }
 
