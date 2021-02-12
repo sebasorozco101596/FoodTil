@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.sebasorozcob.www.foodtil.data.database.RecipesEntity
+import com.sebasorozcob.www.foodtil.data.database.entities.RecipesEntity
 import com.sebasorozcob.www.foodtil.models.FoodRecipe
 import com.sebasorozcob.www.foodtil.util.NetworkResult
 

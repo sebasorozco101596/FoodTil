@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.foodtil.data.database
+package com.sebasorozcob.www.foodtil.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -11,6 +11,7 @@ import com.sebasorozcob.www.foodtil.R
 import com.sebasorozcob.www.foodtil.databinding.FragmentOverviewBinding
 import com.sebasorozcob.www.foodtil.databinding.FragmentRecipesBinding
 import com.sebasorozcob.www.foodtil.models.Result
+import com.sebasorozcob.www.foodtil.util.Constants.Companion.RECIPE_RESULT_KEY
 import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
@@ -24,7 +25,7 @@ class OverviewFragment : Fragment() {
         binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable("recipeBundle")
+        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
 
         with(binding!!) {
             mainImageView.load(myBundle?.image)

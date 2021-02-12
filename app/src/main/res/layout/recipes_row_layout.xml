@@ -83,27 +83,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:layout_marginBottom="36dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/heartTextView"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/heartTextView"
+                    android:contentDescription="@string/heart_image"
+                    app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
-                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red"
-                    tools:ignore="VectorDrawableCompat"
-                    android:contentDescription="@string/heart_image" />
+                    tools:ignore="VectorDrawableCompat" />
 
                 <TextView
                     android:id="@+id/heartTextView"
                     setNumberOfLikes="@{result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:gravity="center"
                     android:textAlignment="center"
                     android:textColor="@color/red"
-                    app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/heartImageView"
+                    app:layout_constraintStart_toStartOf="@+id/heartImageView"
                     app:layout_constraintTop_toBottomOf="@+id/heartImageView"
                     tools:text="100" />
 
@@ -111,48 +109,50 @@
                     android:id="@+id/clockImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:tint="@color/yellow"
-                    app:layout_constraintEnd_toEndOf="@+id/clockTextView"
-                    app:layout_constraintStart_toStartOf="@+id/clockTextView"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="@string/clock_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/heartImageView"
+                    app:layout_constraintStart_toEndOf="@+id/heartImageView"
                     app:layout_constraintTop_toTopOf="@+id/heartImageView"
                     app:srcCompat="@drawable/ic_clock"
-                    tools:ignore="VectorDrawableCompat"
-                    android:contentDescription="@string/clock_image" />
+                    app:tint="@color/yellow"
+                    tools:ignore="VectorDrawableCompat" />
 
                 <TextView
                     android:id="@+id/clockTextView"
+                    setNumberOfMinutes="@{result.readyInMinutes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    tools:text="100"
                     android:gravity="center"
-                    setNumberOfMinutes="@{result.readyInMinutes}"
-                    android:textColor="@color/yellow"
                     android:textAlignment="center"
-                    app:layout_constraintStart_toEndOf="@+id/heartTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/clockImageView" />
+                    android:textColor="@color/yellow"
+                    app:layout_constraintEnd_toEndOf="@+id/clockImageView"
+                    app:layout_constraintStart_toStartOf="@+id/clockImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/clockImageView"
+                    tools:text="100" />
 
                 <ImageView
                     android:id="@+id/leafImageView"
+                    applyVeganColor="@{result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    applyVeganColor="@{result.vegan}"
-                    app:layout_constraintEnd_toEndOf="@+id/leafTextView"
-                    app:layout_constraintStart_toStartOf="@+id/leafTextView"
+                    android:layout_marginStart="32dp"
+                    android:contentDescription="@string/vegan_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/clockImageView"
+                    app:layout_constraintStart_toEndOf="@+id/clockImageView"
                     app:layout_constraintTop_toTopOf="@+id/clockImageView"
                     app:srcCompat="@drawable/ic_leaf"
-                    tools:ignore="VectorDrawableCompat"
-                    android:contentDescription="@string/vegan_image" />
+                    tools:ignore="VectorDrawableCompat" />
 
                 <TextView
                     android:id="@+id/leafTextView"
+                    applyVeganColor="@{result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    applyVeganColor="@{result.vegan}"
-                    android:layout_marginStart="24dp"
                     android:text="@string/vegan"
                     android:textAlignment="center"
-                    app:layout_constraintStart_toEndOf="@+id/clockTextView"
+                    app:layout_constraintEnd_toEndOf="@+id/leafImageView"
+                    app:layout_constraintStart_toStartOf="@+id/leafImageView"
                     app:layout_constraintTop_toBottomOf="@+id/leafImageView" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

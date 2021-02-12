@@ -14,6 +14,7 @@ import com.sebasorozcob.www.foodtil.ui.adapters.PagerAdapter
 import com.sebasorozcob.www.foodtil.ui.fragments.ingredients.IngredientsFragment
 import com.sebasorozcob.www.foodtil.ui.fragments.instructions.InstructionsFragment
 import com.sebasorozcob.www.foodtil.ui.fragments.overview.OverviewFragment
+import com.sebasorozcob.www.foodtil.util.Constants.Companion.RECIPE_RESULT_KEY
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -42,7 +43,7 @@ class DetailsActivity : AppCompatActivity() {
         titles.add("Instructions")
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle", args.result)
+        resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
 
         val adapter = PagerAdapter(
             resultBundle,
