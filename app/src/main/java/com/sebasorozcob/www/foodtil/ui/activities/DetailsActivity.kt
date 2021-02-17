@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayoutMediator
 import com.sebasorozcob.www.foodtil.R
 import com.sebasorozcob.www.foodtil.data.database.entities.FavoritesEntity
 import com.sebasorozcob.www.foodtil.databinding.ActivityDetailsBinding
@@ -60,15 +61,19 @@ class DetailsActivity : AppCompatActivity() {
         val resultBundle = Bundle()
         resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
 
-        val adapter = PagerAdapter(
+        val pagerAdapter = PagerAdapter(
             resultBundle,
             fragments,
-            titles,
-            supportFragmentManager
+            this
         )
 
-        binding.viewPager.adapter = adapter
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.viewPager2.apply {
+            adapter = pagerAdapter
+        }
+
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) {tab, position ->
+            tab.text = titles[position]
+        }.attach()
 
     }
 

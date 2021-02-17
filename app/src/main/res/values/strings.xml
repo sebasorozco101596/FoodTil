@@ -44,4 +44,6 @@
     <string name="save_to_favorites">Save to Favorites</string>
     <string name="no_favorites_recipes">No Favorites Recipes.</string>
     <string name="no_data_favorite">Image show that the user does not have any favorite recipe</string>
+    <string name="delete_favorite_menu">Delete favorite menu</string>
+    <string name="delete_all">Delete all</string>
 </resources>
