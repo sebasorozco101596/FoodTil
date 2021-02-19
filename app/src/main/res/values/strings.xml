@@ -46,4 +46,7 @@
     <string name="no_data_favorite">Image show that the user does not have any favorite recipe</string>
     <string name="delete_favorite_menu">Delete favorite menu</string>
     <string name="delete_all">Delete all</string>
+    <string name="text_joke_default">lorem ipsum dolor, sit amet, consectetur adipising in the dark of the night and in the ligth of the day. I love my beautiful women</string>
+    <string name="error">Error</string>
+    <string name="share">Share</string>
 </resources>

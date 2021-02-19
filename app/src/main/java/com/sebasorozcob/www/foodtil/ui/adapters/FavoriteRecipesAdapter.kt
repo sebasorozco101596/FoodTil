@@ -54,6 +54,8 @@ class FavoriteRecipesAdapter(
                 binding.favoritesEntity = this
                 binding.executePendingBindings()
 
+                saveItemSateOnScroll(currentRecipe, holder)
+
                 /**
                  * Single Click Listener
                  */
@@ -80,11 +82,19 @@ class FavoriteRecipesAdapter(
                         applySelection(holder, this)
                         true
                     } else {
-                        multiSelection = false
-                        false
+                        applySelection(holder, this)
+                        true
                     }
                 }
             }
+        }
+    }
+
+    private fun saveItemSateOnScroll(currentRecipe: FavoritesEntity, holder: MyViewHolder) {
+        if (selectedRecipes.contains(currentRecipe)) {
+            changeRecipeStyle(holder, R.color.cardBackgroundLightColor, R.color.colorPrimary)
+        } else {
+            changeRecipeStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor)
         }
     }
 
@@ -92,6 +102,7 @@ class FavoriteRecipesAdapter(
         when (selectedRecipes.size) {
             0 -> {
                 mActionMode.finish()
+                multiSelection = false
             }
             1 -> {
                 mActionMode.title = "${selectedRecipes.size} item selected"
