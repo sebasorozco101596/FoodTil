@@ -1,6 +1,5 @@
 package com.sebasorozcob.www.foodtil.data.database.entities
 
-import android.widget.TextView
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey

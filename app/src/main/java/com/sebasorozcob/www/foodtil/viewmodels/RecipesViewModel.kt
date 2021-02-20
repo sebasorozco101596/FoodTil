@@ -2,7 +2,6 @@ package com.sebasorozcob.www.foodtil.viewmodels
 
 import android.app.Application
 import android.widget.Toast
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -16,13 +15,16 @@ import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_API_KEY
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_DIET
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_FILL_INGREDIENTS
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_NUMBER
-import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_TYPE
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_SEARCH
+import com.sebasorozcob.www.foodtil.util.Constants.Companion.QUERIES_TYPE
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RecipesViewModel @ViewModelInject constructor(
+@HiltViewModel
+class RecipesViewModel @Inject constructor(
     application: Application,
     private val dataStoreRepository: DataStoreRepository
 ) : AndroidViewModel(application) {

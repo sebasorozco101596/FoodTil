@@ -11,7 +11,6 @@ import androidx.navigation.findNavController
 import coil.load
 import com.sebasorozcob.www.foodtil.R
 import com.sebasorozcob.www.foodtil.models.Result
-import com.sebasorozcob.www.foodtil.ui.fragments.recipes.RecipesFragmentArgs
 import com.sebasorozcob.www.foodtil.ui.fragments.recipes.RecipesFragmentDirections
 import org.jsoup.Jsoup
 

@@ -1,7 +1,6 @@
 package com.sebasorozcob.www.foodtil.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.sebasorozcob.www.foodtil.models.Result
 
 class RecipesDiffUtil<T>(
     private val oldList: List<T>,

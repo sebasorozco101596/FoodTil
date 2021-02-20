@@ -21,9 +21,8 @@ import com.sebasorozcob.www.foodtil.ui.fragments.overview.OverviewFragment
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.RECIPE_RESULT_KEY
 import com.sebasorozcob.www.foodtil.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 
-private val TAG = "DetailsActivity"
+private const val TAG = "DetailsActivity"
 
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {

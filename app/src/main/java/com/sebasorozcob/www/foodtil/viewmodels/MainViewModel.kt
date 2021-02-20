@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.sebasorozcob.www.foodtil.data.Repository
 import com.sebasorozcob.www.foodtil.data.database.entities.FavoritesEntity
@@ -13,12 +12,14 @@ import com.sebasorozcob.www.foodtil.data.database.entities.RecipesEntity
 import com.sebasorozcob.www.foodtil.models.FoodJoke
 import com.sebasorozcob.www.foodtil.models.FoodRecipe
 import com.sebasorozcob.www.foodtil.util.NetworkResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import javax.inject.Inject
 
-//@HiltViewModel
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val repository: Repository,
     application: Application
 ) : AndroidViewModel(application) {
@@ -26,7 +27,8 @@ class MainViewModel @ViewModelInject constructor(
     /** ROOM DATABASE */
 
     val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
-    val readFavoriteRecipes: LiveData<List<FavoritesEntity>> = repository.local.readFavoriteRecipes().asLiveData()
+    val readFavoriteRecipes: LiveData<List<FavoritesEntity>> =
+        repository.local.readFavoriteRecipes().asLiveData()
     val readFoodJoke: LiveData<List<FoodJokeEntity>> = repository.local.readFoodJoke().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
@@ -39,7 +41,7 @@ class MainViewModel @ViewModelInject constructor(
             repository.local.insertFavoriteRecipes(favoritesEntity)
         }
 
-    fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) =
+    private fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFoodJoke(foodJokeEntity)
         }
@@ -86,8 +88,8 @@ class MainViewModel @ViewModelInject constructor(
                 recipesResponse.value = handleFoodRecipesResponse(response)
 
                 // Later of the app get the information of the API save it in the database
-                val foodRecipe= recipesResponse.value!!.data
-                if (foodRecipe != null){
+                val foodRecipe = recipesResponse.value!!.data
+                if (foodRecipe != null) {
                     offlineCacheRecipes(foodRecipe)
                 }
             } catch (e: Exception) {
@@ -112,7 +114,7 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    suspend fun getFoodJokeSafeCall(apiKey: String) {
+    private suspend fun getFoodJokeSafeCall(apiKey: String) {
         foodJokeResponse.value = NetworkResult.Loading()
         if (hasInternetConnection()) {
             try {

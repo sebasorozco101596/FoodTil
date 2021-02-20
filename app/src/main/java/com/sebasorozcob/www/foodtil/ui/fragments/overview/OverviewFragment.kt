@@ -1,15 +1,14 @@
 package com.sebasorozcob.www.foodtil.ui.fragments.overview
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import coil.load
 import com.sebasorozcob.www.foodtil.R
 import com.sebasorozcob.www.foodtil.databinding.FragmentOverviewBinding
-import com.sebasorozcob.www.foodtil.databinding.FragmentRecipesBinding
 import com.sebasorozcob.www.foodtil.models.Result
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.RECIPE_RESULT_KEY
 import org.jsoup.Jsoup

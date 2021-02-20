@@ -26,11 +26,11 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/lightMediumGray"
+            app:strokeColor="@color/strokeColor"
             app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:background="@color/white"
+                android:background="@color/cardBackgroundColor"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent">
 
@@ -57,7 +57,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_width="0dp"
                     android:maxLines="2"
-                    android:textColor="@color/darker"
+                    android:textColor="@color/titleColor"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +72,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_width="0dp"
                     android:maxLines="3"
-                    android:textColor="@color/darkGray"
+                    android:textColor="@color/descriptionColor"
                     app:layout_constraintEnd_toEndOf="@+id/favoriteTitleTextView"
                     app:layout_constraintStart_toStartOf="@+id/favoriteTitleTextView"
                     app:layout_constraintTop_toBottomOf="@+id/favoriteTitleTextView" />
