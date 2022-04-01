@@ -43,7 +43,7 @@ class FavoriteRecipesFragment : Fragment() {
 
         if (item.itemId == R.id.deleteAllFavoriteRecipesMenu) {
             mainViewModel.deleteAllFavoriteRecipes()
-            showSnackBar("All recipes removed.")
+            showSnackBar()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -53,10 +53,10 @@ class FavoriteRecipesFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    private fun showSnackBar(message: String) {
+    private fun showSnackBar() {
         Snackbar.make(
             binding.root,
-            message,
+            "All recipes removed",
             Snackbar.LENGTH_SHORT
         ).setAction("Okay"){}
             .show()

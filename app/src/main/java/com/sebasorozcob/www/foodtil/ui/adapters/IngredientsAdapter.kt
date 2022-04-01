@@ -11,7 +11,6 @@ import com.sebasorozcob.www.foodtil.databinding.IngredientsRowLayoutBinding
 import com.sebasorozcob.www.foodtil.models.ExtendedIngredient
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.BASE_IMAGE_URL
 import com.sebasorozcob.www.foodtil.util.RecipesDiffUtil
-import java.util.*
 
 private const val TAG = "IngredientsAdapter"
 
@@ -39,7 +38,11 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>
                 crossfade(600)
                 error(R.drawable.ic_error_placeholder)
             }
-            ingredientName.text = currentIngredient.name.capitalize(java.util.Locale.ROOT)
+            ingredientName.text = currentIngredient.name.replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(
+                    java.util.Locale.ROOT
+                ) else it.toString()
+            }
             ingredientAmount.text = currentIngredient.amount.toString()
             ingredientUnit.text = currentIngredient.unit
             ingredientConsistency.text = currentIngredient.consistency

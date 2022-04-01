@@ -67,6 +67,7 @@ class DetailsActivity : AppCompatActivity() {
             this
         )
 
+        binding.viewPager2.isUserInputEnabled = false
         binding.viewPager2.apply {
             adapter = pagerAdapter
         }
@@ -105,7 +106,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun checkSavedRecipes(menuItem: MenuItem) {
-        mainViewModel.readFavoriteRecipes.observe(this, { favoritesEntity ->
+        mainViewModel.readFavoriteRecipes.observe(this) { favoritesEntity ->
             try {
                 for (savedRecipe in favoritesEntity) {
                     if (savedRecipe.result.id == args.result.id) {
@@ -117,7 +118,7 @@ class DetailsActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.d(TAG, e.message.toString())
             }
-        })
+        }
     }
 
     private fun saveToFavorites(item: MenuItem) {

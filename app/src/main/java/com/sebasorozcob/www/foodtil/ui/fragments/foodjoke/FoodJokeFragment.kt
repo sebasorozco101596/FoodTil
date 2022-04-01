@@ -38,7 +38,7 @@ class FoodJokeFragment : Fragment() {
         setHasOptionsMenu(true)
 
         mainViewModel.getFoodJoke(API_KEY)
-        mainViewModel.foodJokeResponse.observe(viewLifecycleOwner, { response ->
+        mainViewModel.foodJokeResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Success -> {
                     binding.foodJokeTextView.text = response.data?.text
@@ -56,7 +56,7 @@ class FoodJokeFragment : Fragment() {
                     Log.d(TAG, "Loading FoodJoke")
                 }
             }
-        })
+        }
 
         return binding.root
     }
@@ -79,12 +79,12 @@ class FoodJokeFragment : Fragment() {
 
     private fun loadDataFromCache() {
         lifecycleScope.launch {
-            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
+            mainViewModel.readFoodJoke.observe(viewLifecycleOwner) { database ->
                 if (!database.isNullOrEmpty()) {
                     binding.foodJokeTextView.text = database[0].foodJoke.text
                     foodJoke = database[0].foodJoke.text
                 }
-            })
+            }
         }
     }
 

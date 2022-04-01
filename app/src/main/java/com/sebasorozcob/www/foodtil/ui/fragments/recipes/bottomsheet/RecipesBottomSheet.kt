@@ -43,7 +43,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
         var lastDietTypeCheck: String? = null
 
         // This observe receive the preferences saved previously
-        recipesViewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner, { value ->
+        recipesViewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner) { value ->
 
             mealTypeChip = value.selectedMealType
             lastMealTypeCheck = mealTypeChip
@@ -52,11 +52,11 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
             updateChip(value.selectedMealTypeId, binding.mealTypeChipGroup)
             updateChip(value.selectedDietTypeId, binding.dietTypeChipGroup)
-        })
+        }
 
         binding.mealTypeChipGroup.setOnCheckedChangeListener { group, selectedChipId ->
             val chip = group.findViewById<Chip>(selectedChipId)
-            val selectedMealType = chip.text.toString().toLowerCase(Locale.ROOT)
+            val selectedMealType = chip.text.toString().lowercase(Locale.ROOT)
             mealTypeChip = selectedMealType
             mealTypeChipId = selectedChipId
 
@@ -69,7 +69,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
         binding.dietTypeChipGroup.setOnCheckedChangeListener { group, selectedChipId ->
             val chip = group.findViewById<Chip>(selectedChipId)
-            val selectedDietType = chip.text.toString().toLowerCase(Locale.ROOT)
+            val selectedDietType = chip.text.toString().lowercase(Locale.ROOT)
             dietTypeChip = selectedDietType
             dietTypeChipId = selectedChipId
 
