@@ -8,7 +8,6 @@
     app:layoutDescription="@xml/fragment_overview_scene"
     tools:context=".ui.fragments.overview.OverviewFragment">
 
-
     <ImageView
         android:id="@+id/mainImageView"
         android:layout_width="0dp"

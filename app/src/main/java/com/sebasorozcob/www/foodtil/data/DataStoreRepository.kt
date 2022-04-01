@@ -3,7 +3,7 @@ package com.sebasorozcob.www.foodtil.data
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
-import androidx.datastore.preferences.createDataStore
+import androidx.datastore.preferences.preferencesDataStore
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.DEFAULT_DIET_TYPE
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.DEFAULT_MEAL_TYPE
 import com.sebasorozcob.www.foodtil.util.Constants.Companion.PREFERENCES_BACK_ONLINE
@@ -32,7 +32,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
         val backOnline = booleanPreferencesKey(PREFERENCES_BACK_ONLINE)
     }
 
-    private val dataStore: DataStore<Preferences> = context.createDataStore(
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
         name = PREFERENCES_NAME
     )
 
@@ -42,7 +42,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
         dietType: String,
         dietTypeId: Int
     ) {
-        dataStore.edit { preferences ->
+        context.dataStore.edit { preferences ->
             preferences[PreferenceKeys.selectedMealType] = mealType
             preferences[PreferenceKeys.selectedMealTypeId] = mealTypeId
             preferences[PreferenceKeys.selectedDietType] = dietType
@@ -51,12 +51,12 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
     }
 
     suspend fun saveBackOnline(backOnline: Boolean) {
-        dataStore.edit { preferences ->
+        context.dataStore.edit { preferences ->
             preferences[PreferenceKeys.backOnline] = backOnline
         }
     }
 
-    val readMealAndDietType: Flow<MealAndDietType> = dataStore.data
+    val readMealAndDietType: Flow<MealAndDietType> = context.dataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
@@ -77,7 +77,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
             )
         }
 
-    val readBackOnline: Flow<Boolean> = dataStore.data
+    val readBackOnline: Flow<Boolean> = context.dataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())

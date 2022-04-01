@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="actionBarStyle">@style/CustomActionBarStyle</item>
         <item name="bottomNavigationStyle">@style/CustomBottomNavigationViewStyle</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:navigationBarColor">@color/statusBarColor</item>
     </style>
 
     <style name="CustomBottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">

@@ -25,7 +25,6 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "RecipesFragment"
 
-
 // Don't forget import the androidx.appcompat.widget.SearchView
 @AndroidEntryPoint
 class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
@@ -49,9 +48,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
 
-        setHasOptionsMenu(true)
-
-        //mainViewModel =  ViewModelProvider(this).get(MainViewModel::class.java)
+        setHasOptionsMenu(true) // This line active search of recipes
         setupRecyclerView()
 
         recipesViewModel.readBackOnline.observe(viewLifecycleOwner, {
@@ -145,7 +142,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                     Toast.makeText(
                         requireContext(),
                         response.message.toString(),
-                        Toast.LENGTH_LONG
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
                 is NetworkResult.Loading -> {
@@ -199,8 +196,8 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.recyclerView.hideShimmer()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

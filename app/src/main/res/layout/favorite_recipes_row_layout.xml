@@ -92,7 +92,7 @@
                 <TextView
                     android:gravity="center"
                     android:id="@+id/favoriteHeartTextView"
-                    setNumberOfLikes="@{favoritesEntity.result.aggregateLikes}"
+                    android:text="@{String.valueOf(favoritesEntity.result.aggregateLikes)}"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                 <TextView
                     android:gravity="center"
                     android:id="@+id/favoriteClockTextView"
-                    setNumberOfMinutes="@{favoritesEntity.result.readyInMinutes}"
+                    android:text="@{String.valueOf(favoritesEntity.result.readyInMinutes)}"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textAlignment="center"

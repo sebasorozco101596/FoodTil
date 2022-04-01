@@ -12,7 +12,8 @@ import com.sebasorozcob.www.foodtil.util.Constants
 
 class InstructionsFragment : Fragment() {
 
-    private var binding: FragmentInstructionsBinding? = null
+    private var _binding: FragmentInstructionsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,18 +21,23 @@ class InstructionsFragment : Fragment() {
     ): View {
 
         // Inflate the layout for this fragment
-        binding = FragmentInstructionsBinding.inflate(inflater, container, false)
+        _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
         val args = arguments
         val myBundle: Result? = args?.getParcelable(Constants.RECIPE_RESULT_KEY)
 
-        binding?.instructionsWebView?.webViewClient = object : WebViewClient() {
+        binding.instructionsWebView.webViewClient = object : WebViewClient() {
 
         }
 
         val websiteUrl: String = myBundle!!.sourceUrl
-        binding?.instructionsWebView?.loadUrl(websiteUrl)
+        binding.instructionsWebView.loadUrl(websiteUrl)
 
-        return binding!!.root
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

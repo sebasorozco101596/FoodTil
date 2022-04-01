@@ -27,6 +27,7 @@ private const val TAG = "DetailsActivity"
 @AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityDetailsBinding
 
     private val args by navArgs<DetailsActivityArgs>()
