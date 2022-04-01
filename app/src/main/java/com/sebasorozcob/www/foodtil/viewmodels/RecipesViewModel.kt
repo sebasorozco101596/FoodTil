@@ -76,13 +76,6 @@ class RecipesViewModel @Inject constructor(
     fun applyQueries(): HashMap<String, String> {
         val queries: HashMap<String, String> = HashMap()
 
-        viewModelScope.launch {
-            readMealAndDietType.collect { value ->
-                mealType = value.selectedMealType
-                dietType = value.selectedDietType
-            }
-        }
-
         if (!(::mealAndDiet.isInitialized)) {
             queries[QUERIES_NUMBER] = DEFAULT_RECIPES_NUMBER
             queries[QUERIES_API_KEY] = API_KEY
@@ -102,8 +95,6 @@ class RecipesViewModel @Inject constructor(
             queries[QUERIES_ADD_RECIPE_INFORMATION] = "true"
             queries[QUERIES_FILL_INGREDIENTS] = "true"
         }
-
-
 
         return queries
     }

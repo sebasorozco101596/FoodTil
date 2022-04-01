@@ -83,7 +83,6 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
         binding.applyButton.setOnClickListener {
 
-
             recipesViewModel.saveMealAndDietTypeTemp(
                 mealTypeChip,
                 mealTypeChipId,
